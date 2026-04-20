@@ -1,0 +1,9 @@
+:root {
+    --primary: #ffffff;
+     --primary-opaque: rgba(255, 255, 255, 0.2);
+    --primary-opaque-strong: rgba(255, 255, 255, 0.15);
+}
+
+select { background: #222 !important; color: #fff !important; border: 1px solid #444 !important; }
+
+select:focus { border-color: #fff !important; outline: none !important; }

